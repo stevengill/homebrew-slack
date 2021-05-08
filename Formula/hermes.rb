@@ -9,12 +9,12 @@ class Hermes < Formula
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/slackapi/slack-cli/releases/download/v1.0.1/hermes_1.0.1_macOS_64-bit.tar.gz"
-    sha256 "f4995045c050714172e660a4caf3f47b78c65fcdb73d7c448c194979a1b73e37"
+    url "https://github.com/slackapi/slack-cli/releases/download/v0.17.2/hermes_0.17.2_macOS.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "74dfbd3c8801867b4ad56d6fca7e80137144c6e8df08f1ae2fd2556d85fedf66"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/slackapi/slack-cli/releases/download/v1.0.1/hermes_1.0.1_linux_64-bit.tar.gz"
-    sha256 "dd5692ec3e00f76f63c0d929bbef80d7b4668e601def419ba402acc291e00759"
+    url "https://github.com/slackapi/slack-cli/releases/download/v0.17.2/hermes_0.17.2_linux_64-bit.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "6ba7745f6ba1a30b102f82d55f4c512e79b175ed2cf7ec967f99c690d13049fb"
   end
 
   depends_on "git"
