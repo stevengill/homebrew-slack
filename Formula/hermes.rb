@@ -143,6 +143,6 @@ class Hermes < Formula
   depends_on "git"
 
   def install
-    bin.install "hermes"
+    bin.install "./bin/hermes"
   end
 end
