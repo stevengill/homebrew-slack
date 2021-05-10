@@ -113,7 +113,8 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
     release_url = "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/tags/#{@tag}"
     puts "in fetch_release_metadata"
     puts release_url.inspect
-    GitHub::API.open_rest(release_url)
+#     GitHub::API.open_rest(release_url)
+    curl(release_url)
   end
 end
 
@@ -134,6 +135,7 @@ class Hermes < Formula
   end
 
   depends_on "git"
+  depends_on "curl"
 
   def install
     bin.install "hermes"
