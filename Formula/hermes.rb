@@ -95,7 +95,8 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
 
   def asset_id
     puts "in asset_id"
-    @asset_id ||= resolve_asset_id
+#     @asset_id ||= resolve_asset_id
+    @asset_id ||= "36620185"
   end
 
   def resolve_asset_id
