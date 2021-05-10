@@ -79,6 +79,7 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
   end
 
   def download_url
+    puts "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
     "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
   end
 
@@ -100,6 +101,7 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
     release_metadata = fetch_release_metadata
     assets = release_metadata["assets"].select { |a| a["name"] == @filename }
     puts "in resolve_asset_it"
+    puts assets.inspect
     raise CurlDownloadStrategyError, "Asset file not found." if assets.empty?
 
     assets.first["id"]
@@ -107,6 +109,7 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
 
   def fetch_release_metadata
     release_url = "https://api.github.com/repos/#{@owner}/#{@repo}/releases/tags/#{@tag}"
+    puts release_url.inspect
     GitHub::API.open_rest(release_url)
   end
 end
