@@ -80,8 +80,9 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
 
   def download_url
     puts "in download_url"
-    puts "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
-    "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
+    puts "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/36620185"
+#     "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
+    "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/36620185"
   end
 
   private
@@ -101,13 +102,14 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
 
   def resolve_asset_id
     puts @filename
-    release_metadata = fetch_release_metadata
-    assets = release_metadata["assets"].select { |a| a["name"] == @filename }
-    puts "in resolve_asset_it"
-    puts assets.inspect
-    raise CurlDownloadStrategyError, "Asset file not found." if assets.empty?
+#     release_metadata = fetch_release_metadata
+#     assets = release_metadata["assets"].select { |a| a["name"] == @filename }
+#     puts "in resolve_asset_it"
+#     puts assets.inspect
+#     raise CurlDownloadStrategyError, "Asset file not found." if assets.empty?
 
-    assets.first["id"]
+#     assets.first["id"]
+    assets="36620185"
   end
 
   def fetch_release_metadata
