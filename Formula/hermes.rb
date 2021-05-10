@@ -99,6 +99,7 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
   def resolve_asset_id
     release_metadata = fetch_release_metadata
     assets = release_metadata["assets"].select { |a| a["name"] == @filename }
+    puts "in resolve_asset_it"
     raise CurlDownloadStrategyError, "Asset file not found." if assets.empty?
 
     assets.first["id"]
