@@ -113,8 +113,8 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
     release_url = "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/tags/#{@tag}"
     puts "in fetch_release_metadata"
     puts release_url.inspect
-#     GitHub::API.open_rest(release_url)
-    curl(release_url)
+    GitHub::API.open_rest(release_url, data: nil, data_binary_path: nil, request_method: nil, scopes: [].freeze, parse_json: true)
+#     curl(release_url)
   end
 end
 
